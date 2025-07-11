@@ -1,0 +1,38 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>VIP ГОСТЬ</title>
+    <style>
+        body {
+            background-color: #008000;
+            color: white;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            font-size: 2em;
+            padding: 20px;
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const alreadyViewed = localStorage.getItem("vip_viewed");
+            const container = document.getElementById("vip-container");
+
+            if (alreadyViewed) {
+                container.textContent = "⛔ Этот QR-код уже был использован.";
+            } else {
+                container.textContent = "✅ Добро пожаловать, VIP ГОСТЬ!";
+                localStorage.setItem("vip_viewed", "true");
+            }
+        });
+    </script>
+</head>
+<body>
+    <div id="vip-container">Загрузка...</div>
+</body>
+</html>
